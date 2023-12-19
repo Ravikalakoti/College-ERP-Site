@@ -404,7 +404,7 @@ def add_student(request):
         # USERNAME: firstname + underscore + last 3 digits of USN
         # PASSWORD: firstname + underscore + year of birth(YYYY)
         user = User.objects.create_user(
-            username=name.split(" ")[0].lower() + '_' + request.POST['usn'][-3:],
+            username=name.split(" ")[0].lower(),
             password=name.split(" ")[0].lower() + '_' + dob.replace("-","")[:4]
         )
         user.save()
